@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#6b3382",
+                    "surface-container": "#eceeef",
+                    "on-tertiary-container": "#e5a4fc",
+                    "tertiary-fixed": "#f8d8ff",
+                    "on-primary-fixed-variant": "#154b6d",
+                    "inverse-primary": "#9dcbf4",
+                    "surface": "#f8fafb",
+                    "primary-fixed-dim": "#9dcbf4",
+                    "secondary-fixed-dim": "#92ccff",
+                    "primary": "#003857",
+                    "inverse-on-surface": "#eff1f2",
+                    "outline": "#72787f",
+                    "secondary-container": "#71c0fe",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8fafb",
+                    "outline-variant": "#c1c7cf",
+                    "surface-tint": "#326286",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface": "#191c1d",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ecb2ff",
+                    "primary-fixed": "#cce5ff",
+                    "surface-container-low": "#f2f4f5",
+                    "on-secondary-container": "#004d77",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d8dadb",
+                    "on-surface-variant": "#41474e",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#001d31",
+                    "on-primary-fixed": "#001e31",
+                    "on-background": "#191c1d",
+                    "on-tertiary-fixed": "#320046",
+                    "surface-container-high": "#e6e8e9",
+                    "on-secondary-fixed-variant": "#004b73",
+                    "secondary-fixed": "#cce5ff",
+                    "background": "#f8fafb",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#521a69",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#92c0e9",
+                    "primary-container": "#1b4f72",
+                    "secondary": "#006397",
+                    "on-tertiary-fixed-variant": "#662e7d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- NAVIGATION DRAWER (OFFLINE BANNER) -->
+<div class="sticky top-0 w-full py-3 px-4 z-50 flex justify-center items-center bg-[#1A1A2E] shadow-lg">
+<div class="flex items-center gap-3 text-white font-['Inter'] text-sm font-semibold text-center">
+<span class="material-symbols-outlined text-white" data-icon="cloud_off">cloud_off</span>
+<span>You are offline — showing cached data</span>
+</div>
+</div>
+<!-- TOP APP BAR -->
+<header class="bg-[#f8fafb] dark:bg-[#1A1A2E] sticky top-10 z-40">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-primary/10">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Professional studio portrait of a mid-adult male with a friendly expression, clean lighting, blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA598Hp56mkmp0uvoCW6zDp0Ac-JIDpXqNMmLqixMOw1jcSvxyk3kH6aLkrq1h2Vpc9sTuWTF98CNoH1mUcfhoLi52T-nbKUMrfnfvEmYoSTLC7eT5xZyedBCEfE2v6f8VMbQnEfSpKzv2G14LHqZ8KopDWU52M9AoQ5uapUAzYqi732ZwxX0YtGoPzcw5XY2mgnPLAf8JBw0ZOggfaYstZR_6YAvyMaUMO498R05Cs1IN_DWSAbbt3V0LyQVX-iuApEX32dH2tkw"/>
+</div>
+<h1 class="text-xl font-black text-[#003857] dark:text-[#71c0fe] tracking-tighter">StormReady CA19</h1>
+</div>
+<div class="text-[#003857] dark:text-[#71c0fe] font-['Inter'] font-bold tracking-tight text-lg">
+                EN | ES
+            </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 py-12 space-y-12 pb-32">
+<!-- HEADER SECTION -->
+<section class="space-y-2">
+<h2 class="text-4xl md:text-5xl font-black text-primary tracking-tight leading-none">Emergency PDF / PDF de Emergencia</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl">Prepare your physical documentation. This document remains accessible on your device even without cellular service.</p>
+</section>
+<!-- BENTO GRID PREVIEW -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- EVACUATION ZONE CARD -->
+<div class="md:col-span-7 bg-surface-container-lowest rounded-xl p-8 shadow-[0_8px_24px_rgba(0,56,87,0.04)] flex flex-col justify-between min-h-[220px]">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="text-[10px] font-bold tracking-[0.1em] text-secondary uppercase">Current Location</span>
+<h3 class="text-3xl font-bold text-primary">Evacuation Zone</h3>
+</div>
+<div class="bg-primary/5 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="location_on">location_on</span>
+</div>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="text-6xl font-black text-primary tracking-tighter">SCZ-E030</span>
+<span class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">Santa Cruz</span>
+</div>
+</div>
+<!-- CHECKLIST STATUS CARD -->
+<div class="md:col-span-5 bg-primary-container rounded-xl p-8 shadow-[0_8px_24px_rgba(0,56,87,0.06)] text-on-primary">
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-3xl" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">In Progress</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-black tracking-tighter">18</span>
+<span class="text-xl font-medium opacity-70">/ 35</span>
+</div>
+<p class="font-semibold text-lg leading-tight">Checklist Items Completed</p>
+</div>
+<div class="w-full bg-white/10 h-3 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[51%] rounded-full shadow-[0_0_12px_rgba(113,192,254,0.4)]"></div>
+</div>
+</div>
+</div>
+<!-- EMERGENCY CONTACTS CARD -->
+<div class="md:col-span-12 bg-surface-container-low rounded-xl p-8 space-y-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="contact_phone">contact_phone</span>
+<h3 class="text-xl font-bold text-primary tracking-tight">Emergency Contacts</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">OES Agency</p>
+<p class="text-xl font-bold text-primary">Santa Cruz County</p>
+<p class="text-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                            911 or (831) 454-2188
+                        </p>
+</div>
+<div class="space-y-2">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Utility Provider</p>
+<p class="text-xl font-bold text-primary">PG&amp;E</p>
+<p class="text-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                            1-800-743-5000
+                        </p>
+</div>
+<div class="space-y-2">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Medical Support</p>
+<p class="text-xl font-bold text-primary">Poison Control</p>
+<p class="text-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                            1-800-222-1222
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- INPUT SECTION -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_8px_24px_rgba(0,56,87,0.04)] space-y-6">
+<div class="space-y-2">
+<label class="text-lg font-bold text-primary flex items-center gap-2" for="reunion-point">
+                    Family Reunion Point / Punto de reunión familiar
+                </label>
+<p class="text-on-surface-variant text-sm">Specify a safe location for your household to meet if separated during an emergency.</p>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-6 py-4 text-primary font-medium placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-secondary-container transition-all" id="reunion-point" placeholder="e.g., Central Park Clock Tower" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/40" data-icon="edit_location_alt">edit_location_alt</span>
+</div>
+</section>
+<!-- ACTION SECTION -->
+<div class="space-y-6">
+<button class="w-full bg-primary-container text-white py-5 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-[#154b6d] active:scale-95 transition-all shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+                Generate &amp; Download PDF / Generar y descargar PDF
+            </button>
+<!-- MOCK TOAST -->
+<div class="flex items-center gap-4 bg-secondary text-on-secondary px-6 py-4 rounded-full max-w-fit mx-auto shadow-xl">
+<span class="material-symbols-outlined text-white" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold tracking-tight">PDF Saved to Downloads / PDF guardado</span>
+</div>
+</div>
+</main>
+<!-- BOTTOM NAVBAR -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-white/70 dark:bg-[#1A1A2E]/70 backdrop-blur-md shadow-[0_-8px_24px_rgba(0,56,87,0.06)] rounded-t-3xl">
+<div class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl transition-colors">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Zones</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl transition-colors">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Reports</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl transition-colors">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#71c0fe]/20 text-[#003857] dark:text-[#71c0fe] rounded-2xl px-5 py-2 transition-transform active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Checklist</span>
+</div>
+</nav>
+</body></html>

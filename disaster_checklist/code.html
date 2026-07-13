@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StormReady CA19 - Tailored Disaster Checklists</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#6b3382",
+                        "surface-container": "#eceeef",
+                        "on-tertiary-container": "#e5a4fc",
+                        "tertiary-fixed": "#f8d8ff",
+                        "on-primary-fixed-variant": "#154b6d",
+                        "inverse-primary": "#9dcbf4",
+                        "surface": "#f8fafb",
+                        "primary-fixed-dim": "#9dcbf4",
+                        "secondary-fixed-dim": "#92ccff",
+                        "primary": "#003857",
+                        "inverse-on-surface": "#eff1f2",
+                        "outline": "#72787f",
+                        "secondary-container": "#71c0fe",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8fafb",
+                        "outline-variant": "#c1c7cf",
+                        "surface-tint": "#326286",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ecb2ff",
+                        "primary-fixed": "#cce5ff",
+                        "surface-container-low": "#f2f4f5",
+                        "on-secondary-container": "#004d77",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "on-surface-variant": "#41474e",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#001d31",
+                        "on-primary-fixed": "#001e31",
+                        "on-background": "#191c1d",
+                        "on-tertiary-fixed": "#320046",
+                        "surface-container-high": "#e6e8e9",
+                        "on-secondary-fixed-variant": "#004b73",
+                        "secondary-fixed": "#cce5ff",
+                        "background": "#f8fafb",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#521a69",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#92c0e9",
+                        "primary-container": "#1b4f72",
+                        "secondary": "#006397",
+                        "on-tertiary-fixed-variant": "#662e7d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased mb-32">
+<!-- TopAppBar -->
+<header class="bg-[#f8fafb] dark:bg-[#1A1A2E] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User" data-alt="professional headshot of a person with friendly expression, clean corporate background, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3UhyPg1ocg0RTvzyS6lxhHmUHXqpbTB7JjbdfCgycPrPvFx0vroSga-oG6VcEVAS0yuBukitsXPOcMK7vmA3LlC0DJmkxIRQ9D1JKLnXBjs6X3r7EalUND75o5qkg2Bw7oS4l0aznAXMfrD8P6saOF_im9UN4sLVmgTDgZ-ahPEGjJaM29-ElbwNHBCRe03f5iiK5K-vj-z1zTC0mQVOghdJ5bUtNB31YNGBtj_Mu3QzQhDGsc4pBJqD7vdW_uxo2KYt_NacApg"/>
+</div>
+<h1 class="font-['Inter'] font-bold tracking-tight text-lg text-[#003857] dark:text-[#71c0fe]">StormReady CA19</h1>
+</div>
+<div class="text-[#003857] dark:text-[#71c0fe] font-['Inter'] font-bold tracking-tight text-lg cursor-pointer hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] transition-colors px-3 py-1 rounded-xl">
+                EN | ES
+            </div>
+</div>
+</header>
+<!-- NavigationDrawer (Offline Warning) -->
+<div class="sticky top-16 w-full py-3 px-4 z-40 flex justify-center items-center bg-[#1A1A2E] text-white font-['Inter'] text-sm font-semibold text-center shadow-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">cloud_off</span>
+<span>You are offline — showing cached data</span>
+</div>
+</div>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Hero Section / Context -->
+<section class="mb-10">
+<h2 class="text-3xl font-black text-primary tracking-tight mb-2">Checklist Resilience</h2>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Prepare for California's specific climate hazards with our tailored safety guides. Select your region to prioritize your actions.</p>
+</section>
+<!-- ZONE TOGGLE -->
+<section class="grid grid-cols-2 gap-4 mb-10">
+<button class="bg-[#1B4F72] text-white py-6 rounded-xl flex flex-col items-center justify-center gap-2 shadow-lg transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl">waves</span>
+<span class="font-bold tracking-tight">Coastal / Costa</span>
+</button>
+<button class="bg-surface-container-low text-primary py-6 rounded-xl flex flex-col items-center justify-center gap-2 transition-transform active:scale-95 hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-3xl">filter_hdr</span>
+<span class="font-bold tracking-tight text-on-surface-variant">Mountain / Montaña</span>
+</button>
+</section>
+<!-- PROGRESS BAR -->
+<section class="bg-surface-container-lowest p-6 rounded-xl mb-10 shadow-sm border border-outline-variant/15">
+<div class="flex justify-between items-end mb-4">
+<div>
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Status Report</p>
+<h3 class="text-2xl font-black text-primary">Your Preparedness: 47% Ready</h3>
+</div>
+<div class="text-right">
+<span class="text-sm font-medium text-on-surface-variant">7 of 15 Items Completed</span>
+</div>
+</div>
+<div class="w-full bg-secondary-container/30 h-4 rounded-full overflow-hidden">
+<div class="bg-[#2E86C1] h-full rounded-full" style="width: 47%"></div>
+</div>
+</section>
+<!-- CHECKLIST ACCORDIONS -->
+<section class="space-y-6">
+<!-- Earthquake (Expanded) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/15">
+<button class="w-full flex items-center justify-between p-6 bg-tertiary-container text-white">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">earthquake</span>
+</div>
+<div class="text-left">
+<h4 class="font-bold text-lg leading-none">Earthquake</h4>
+<span class="text-[10px] uppercase tracking-widest opacity-80">Priority Status: Critical</span>
+</div>
+</div>
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+<div class="p-6 space-y-4 bg-surface-container-low/30">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<input checked="" class="w-6 h-6 rounded border-outline-variant text-[#2ecc71] focus:ring-[#2ecc71]" type="checkbox"/>
+<span class="font-medium text-on-surface">Secure heavy furniture</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">info</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<input class="w-6 h-6 rounded border-outline-variant text-[#2ecc71] focus:ring-[#2ecc71]" type="checkbox"/>
+<span class="font-medium text-on-surface">Gas shutoff valve location</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">info</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<input class="w-6 h-6 rounded border-outline-variant text-[#2ecc71] focus:ring-[#2ecc71]" type="checkbox"/>
+<span class="font-medium text-on-surface">Out-of-area emergency contact</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold rounded uppercase tracking-tighter">Coastal</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">info</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<input class="w-6 h-6 rounded border-outline-variant text-[#2ecc71] focus:ring-[#2ecc71]" type="checkbox"/>
+<span class="font-medium text-on-surface">Strap water heater</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">info</span>
+</div>
+</div>
+</div>
+<!-- Wildfire (Collapsed) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/15">
+<button class="w-full flex items-center justify-between p-6 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="w-10 h-10 rounded-lg bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="text-left">
+<h4 class="font-bold text-lg leading-none">Wildfire</h4>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Active Watch: Moderate</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-tighter">Mountain</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</button>
+</div>
+<!-- Flood (Collapsed) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/15">
+<button class="w-full flex items-center justify-between p-6 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flood</span>
+</div>
+<div class="text-left">
+<h4 class="font-bold text-lg leading-none">Flood</h4>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Seasonal Risk: Low</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold rounded uppercase tracking-tighter">Coastal</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Decorative Card (Editorial Style) -->
+<section class="mt-12 mb-20 overflow-hidden relative rounded-3xl h-64 flex items-end">
+<img alt="Landscape" class="absolute inset-0 w-full h-full object-cover" data-alt="dramatic aerial view of a rugged california coastline where ocean meets steep rocky cliffs at dusk with misty spray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW7nCD_o05O8g0cq0Oe49vbk7EI4bcu9SLK8TlwGSo0Uc5n6ObOfxNl-qrIL12EKrz7wG0CvzRKOiYqnmimwCVp5FbWeR-3UtuNmCKM19vflIaILYYYb0dNB7RuFEUiJBhu6Rwnv5miaDm8_guBysCZKtxNZGvnEhJRda5ffR6NvOrAKSj_YOmr1UYxHT1RuU617qYGzwL0cbcofl7SfcJKSVJMLm6_C0BUlNCg8b2-YhjLkN_yuPmLyrGy7kx-NdECTzqs-Q2UQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent"></div>
+<div class="relative p-8 w-full">
+<h3 class="text-white text-3xl font-black italic tracking-tighter leading-none mb-2">STAY INFORMED.</h3>
+<p class="text-white/80 text-sm max-w-sm">Every minute saved in preparation is a life protected. Update your checklists seasonally.</p>
+</div>
+</section>
+</main>
+<!-- STICKY BOTTOM BAR (ACTION) -->
+<div class="fixed bottom-24 left-0 w-full px-6 z-40 md:px-0 md:flex md:justify-center">
+<button class="w-full md:max-w-md bg-[#1B4F72] text-white py-5 rounded-2xl flex items-center justify-center gap-3 shadow-2xl font-bold text-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+            Download Emergency PDF / Descargar PDF
+        </button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-white/70 dark:bg-[#1A1A2E]/70 backdrop-blur-md shadow-[0_-8px_24px_rgba(0,56,87,0.06)] rounded-t-3xl">
+<div class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl cursor-pointer">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Zones</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl cursor-pointer">
+<span class="material-symbols-outlined mb-1">list_alt</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Reports</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl cursor-pointer">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#71c0fe]/20 text-[#003857] dark:text-[#71c0fe] rounded-2xl px-5 py-2 scale-90 transition-transform duration-150 cursor-default">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Checklist</span>
+</div>
+</nav>
+</body></html>

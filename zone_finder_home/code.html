@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#6b3382",
+                    "surface-container": "#eceeef",
+                    "on-tertiary-container": "#e5a4fc",
+                    "tertiary-fixed": "#f8d8ff",
+                    "on-primary-fixed-variant": "#154b6d",
+                    "inverse-primary": "#9dcbf4",
+                    "surface": "#f8fafb",
+                    "primary-fixed-dim": "#9dcbf4",
+                    "secondary-fixed-dim": "#92ccff",
+                    "primary": "#003857",
+                    "inverse-on-surface": "#eff1f2",
+                    "outline": "#72787f",
+                    "secondary-container": "#71c0fe",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8fafb",
+                    "outline-variant": "#c1c7cf",
+                    "surface-tint": "#326286",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface": "#191c1d",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ecb2ff",
+                    "primary-fixed": "#cce5ff",
+                    "surface-container-low": "#f2f4f5",
+                    "on-secondary-container": "#004d77",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d8dadb",
+                    "on-surface-variant": "#41474e",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#001d31",
+                    "on-primary-fixed": "#001e31",
+                    "on-background": "#191c1d",
+                    "on-tertiary-fixed": "#320046",
+                    "surface-container-high": "#e6e8e9",
+                    "on-secondary-fixed-variant": "#004b73",
+                    "secondary-fixed": "#cce5ff",
+                    "background": "#f8fafb",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#521a69",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#92c0e9",
+                    "primary-container": "#1b4f72",
+                    "secondary": "#006397",
+                    "on-tertiary-fixed-variant": "#662e7d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .map-pulse {
+            position: relative;
+        }
+        .map-pulse::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: rgba(113, 192, 254, 0.4);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar (From JSON) -->
+<header class="bg-[#f8fafb] dark:bg-[#1A1A2E] docked full-width top-0 sticky z-50 tonal transitions using vertical white space flat no shadows">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<!-- Left: Language Toggle (Trailing Type mapped to Left in User Prompt) -->
+<div class="text-[#003857] dark:text-[#71c0fe] font-['Inter'] font-bold tracking-tight text-lg cursor-pointer hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] transition-colors px-3 py-1 rounded-lg">
+                EN | ES
+            </div>
+<!-- Center: Headline -->
+<h1 class="text-xl font-black text-[#003857] dark:text-[#71c0fe] tracking-tighter">
+                StormReady CA19
+            </h1>
+<!-- Right: Avatar -->
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-secondary-container">
+<img alt="User" class="w-full h-full object-cover" data-alt="close-up portrait of a professional woman with a calm expression in a brightly lit modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpy0B8ue0-KUEvVnixbzepNjGyWobIMzqBL_90t0-egvjVyjRZoI4RhKlCsQhGEH4cqBjHrUDMxfNqAl1rPoZylZ8S2AIvcmGzIBAhXSaHt_BEpvsTeDKid3W7iBlQMopIrofkLGYa5ahkcx3kjWLNqP-F0vgQTMCiwQTIGTwts0OifnfHZWQHhoYZ1TijSNfmuJOy6u4a7a6Y4L9aP4VlaKuT7Z2sFy545djGWg86FZ0fxj0cYZk1DVOsG17Mu4eCv8lzvoZQ2Q"/>
+</div>
+</div>
+</header>
+<!-- Map Canvas (Full Screen behind UI) -->
+<main class="flex-grow relative h-full w-full overflow-hidden">
+<div class="absolute inset-0 bg-surface-container">
+<img alt="Interactive Map" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="highly detailed digital map visualization of a coastal urban landscape with dark blue water and light gray topographical features" data-location="California Coastal Region" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnMO0F1hHBkMfbJc78Q_ycrtFt_9t6Xq_R_MAfbymzRpgXT2S7LLax6v0GLT93vpydKqUYCPGILdvdVe6JFbWdOolZZngqKgQnFAix_MeWDaLPR7QG5SU2t0nADhkg_kniMTHnEzBcSb_m-8QrHzF6m517pvXzRVsmvOxNowta2xmo6LoUtmw8_jFlpgPwIC-5SjmjwGaRikeFyQfGrEB6_3_yCuKlWydq98XrY4oP0KFupofy9t1sI3KRzZh5M1LV3gonmo_FBw"/>
+<!-- Pulse Center Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+<div class="map-pulse">
+<div class="w-4 h-4 bg-secondary rounded-full border-2 border-white shadow-lg"></div>
+</div>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-20">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-full shadow-[0_8px_24px_rgba(0,56,87,0.06)] flex items-center px-4 py-3 border border-outline-variant/15">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-sm font-medium" placeholder="Search address or zone... / Buscar..." type="text"/>
+</div>
+</div>
+<!-- Layer Toggle FAB -->
+<div class="absolute top-20 right-6 z-20">
+<button class="w-12 h-12 bg-primary text-on-primary rounded-xl shadow-lg flex items-center justify-center hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+</div>
+<!-- Bottom Sheet Card (40% height) -->
+<div class="absolute bottom-0 left-0 w-full h-[45%] bg-white/70 dark:bg-[#1A1A2E]/70 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_24px_rgba(0,56,87,0.08)] z-30 flex flex-col px-8 pt-6 pb-10">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant/30 rounded-full mx-auto mb-6"></div>
+<div class="flex-grow">
+<!-- Zone Identifier -->
+<div class="mb-4">
+<h2 class="text-4xl font-black text-primary-container tracking-tighter leading-none mb-2">SCZ-E030</h2>
+<p class="text-secondary font-bold text-xs tracking-widest uppercase">Current Location • Ubicación Actual</p>
+</div>
+<!-- Risk Badges -->
+<div class="flex gap-3 mb-6">
+<div class="bg-[#ffdad6] text-[#93000a] px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[11px] font-extrabold tracking-tight uppercase">Fire Hazard</span>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="earthquake">earthquake</span>
+<span class="text-[11px] font-extrabold tracking-tight uppercase">Earthquake</span>
+</div>
+</div>
+<!-- Info Line -->
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-xl mb-6">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="route">route</span>
+<div>
+<p class="text-sm font-semibold text-on-surface">Nearest Evacuation Route:</p>
+<p class="text-sm font-bold text-primary">Hwy 1 Southbound / Carretera 1 Sur</p>
+</div>
+</div>
+</div>
+<!-- Primary CTA -->
+<button class="w-full h-14 bg-primary-container text-secondary-container font-black text-lg rounded-xl flex items-center justify-center gap-2 shadow-xl active:scale-95 transition-transform">
+                View My Checklist / Ver mi lista
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (From JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-white/70 dark:bg-[#1A1A2E]/70 backdrop-blur-md shadow-[0_-8px_24px_rgba(0,56,87,0.06)] rounded-t-3xl">
+<!-- Zones (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#71c0fe]/20 text-[#003857] dark:text-[#71c0fe] rounded-2xl px-5 py-2 scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Zones</span>
+</a>
+<!-- Reports -->
+<a class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Reports</span>
+</a>
+<!-- Map -->
+<a class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Map</span>
+</a>
+<!-- Checklist -->
+<a class="flex flex-col items-center justify-center text-[#44474e] dark:text-[#c4c6cf] px-5 py-2 hover:bg-[#f2f4f5] dark:hover:bg-[#1B4F72] rounded-2xl" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Checklist</span>
+</a>
+</nav>
+</body></html>

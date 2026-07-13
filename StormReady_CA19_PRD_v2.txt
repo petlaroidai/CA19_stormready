@@ -1,0 +1,764 @@
+
+PRODUCT REQUIREMENTS DOCUMENT
+
+
+StormReady CA19
+Real-Time Disaster Response & Preparedness for California's Central Coast
+Wildfires  |  Atmospheric Rivers  |  Earthquakes  |  Tsunamis  |  Mudslides
+
+Challenge
+Congressional App Challenge 2026
+District
+CA-19 (Central Coast)
+Developer
+Arya Patel, 7th Grade
+Version
+2.0 (Comprehensive)
+Date
+March 2026
+GitHub
+github.com/aryapatel/stormready-ca19
+
+Table of Contents
+
+1.  Executive Summary
+2.  Target Users & Personas
+3.  Hazard Coverage (CA-19 Specific)
+4.  Feature Modules (MVP)
+–  Module A: Zone Finder Map
+–  Module B: Real-Time Community Reports
+–  Module C: Tailored Disaster Checklists
+–  Module D: Offline Mode Protocol
+–  Module E: Bilingual Support (EN/ES)
+5.  Future Features (Post-MVP)
+6.  Technical Specification
+7.  Data Models
+8.  UI/UX Design Guidelines
+9.  Development Plan (10-Week Sprint)
+10.  Testing Plan
+11.  Success Metrics
+12.  Risks & Mitigations
+13.  Congressional App Challenge Alignment
+
+1. Executive Summary
+The Problem
+California's 19th Congressional District (Santa Cruz, Monterey, and the Santa Cruz Mountains) faces a unique convergence of natural disasters: atmospheric rivers that flood coastal towns and close Hwy 1, wildfires that burn through mountain communities (the CZU Lightning Complex fire destroyed 1,490 structures in 2020), earthquake risk from nearby fault lines, and tsunami exposure along the coast. Yet residents have no single, localized tool to get real-time hazard updates, find their evacuation zone, or build a disaster kit tailored to whether they live on the coast or in the mountains. During the January 2023 atmospheric river storms, cell towers went down across the Santa Cruz Mountains, leaving residents without access to online emergency info.
+
+The Solution: StormReady CA19
+A mobile-first, bilingual (English/Spanish) web app with five core modules: (A) a Zone Finder Map that instantly shows your evacuation zone using GPS, (B) a crowdsourced real-time storm/hazard reporting feed, (C) geographic disaster checklists tailored to coastal vs. mountain risks across all hazard types, (D) an offline mode that caches critical info as a downloadable PDF for when cell service fails, and (E) full Spanish language support for Watsonville and Salinas communities.
+
+Why This Matters to Me — Arya Patel
+I live in CA-19 and experienced the 2023 storms firsthand. My family didn't know which roads were closed, what evacuation zone we were in, or what supplies we actually needed for our specific area. I built this app so no family in our district has to feel that unprepared again.
+
+2. Target Users & Personas
+Persona
+Description
+Key Needs
+Coastal Resident
+Lives in Santa Cruz, Monterey, or Seaside near the coast; worries about flooding, storm surge, and tsunamis
+Real-time flood zone alerts, tsunami evacuation zones, sandbag locations, high-tide schedules
+Mountain Resident
+Lives in Santa Cruz Mountains or near Big Sur; vulnerable to wildfires, mudslides, power outages, and road isolation
+Wildfire evacuation maps, AQI alerts, go-bag checklists, generator/power info, landslide warning signs
+Hwy 1/17 Commuter
+Drives Hwy 1 or Hwy 17 daily for work; needs real-time road condition updates
+Crowdsourced road closures, alternate routes, CalTrans bridge status, hazard warnings
+Spanish-Speaking Family
+Lives in Watsonville or Salinas; primary language is Spanish; underserved by English-only emergency tools
+Full Spanish UI, bilingual checklist, culturally relevant preparedness guidance
+Local Emergency Coordinator
+County or city emergency manager who wants community-level ground truth
+Aggregated report data, heatmaps, verified vs. unverified report filtering
+
+3. Hazard Coverage (CA-19 Specific)
+Unlike generic disaster apps, StormReady CA19 is built specifically for the hazards that affect our district. Here is every major hazard the app addresses, why it matters locally, and which module handles it:
+Critical Gap in Existing Tools
+Most emergency apps (like FEMA or Red Cross) are national and generic. They don't know that a mountain resident in Bonny Doon needs wildfire go-bags and chainsaw access while a coastal resident in Capitola needs sandbags and tide charts. StormReady CA19 closes this gap.
+
+Hazard
+CA-19 Context
+Risk Zone
+App Module
+Atmospheric Rivers / Flooding
+Jan 2023 storms caused $3B+ damage statewide; Santa Cruz County hit hardest with Hwy 1 closures, Pajaro levee breach
+Coastal + low-lying
+Reports, Zone Finder, Coastal Checklist
+Wildfires
+CZU Lightning Complex (2020): 86,509 acres burned, 1,490 structures destroyed in Santa Cruz Mountains
+Mountain zones
+Reports, Mountain Checklist, AQI integration
+Earthquakes
+San Andreas Fault runs through district; 1989 Loma Prieta (6.9) epicenter was in the Santa Cruz Mountains
+Entire district
+Both checklists, Zone Finder, Offline Mode
+Tsunamis
+Santa Cruz Harbor damaged by 2011 Japan tsunami waves; official tsunami inundation zones exist for coastal areas
+Coastal zones
+Zone Finder, Coastal Checklist
+Mudslides
+Post-fire burn scars + heavy rain = extreme mudslide risk; common on Hwy 17 and mountain roads
+Mountain zones
+Reports, Mountain Checklist
+Power Outages (PG&E PSPS)
+PG&E Public Safety Power Shutoffs affect mountain communities during fire season; outages last days
+Mountain zones
+Reports, both checklists
+Road Closures
+Hwy 1 closes frequently from storms and slides; Hwy 17 is the only major route over the mountains
+All zones
+Reports, Map View, Offline routes
+
+4. Feature Modules (MVP)
+Module A: Zone Finder Map
+Uses the device's GPS to instantly display the user's Evacuation Zone ID and relevant hazard zones on an interactive map. This is the app's signature feature.
+User Stories
+	•	Auto-Detect Zone: When I open the app and allow location access, I immediately see my Evacuation Zone ID (e.g., SCZ-E030) overlaid on a map, with color-coded layers for flood, wildfire, tsunami, and earthquake fault zones.
+	•	Search Any Address: I can type any CA-19 address to look up its evacuation zone and risk profile.
+	•	Layer Toggle: I can toggle map layers on/off: Flood Zones (FEMA), Fire Hazard Severity Zones (CAL FIRE), Tsunami Inundation Zones (CGS), Earthquake Fault Lines (USGS).
+	•	Zone Detail Card: When I tap my zone, I see a card with: zone ID, primary risks, nearest evacuation route, and a 'View My Checklist' button that auto-selects Coastal or Mountain.
+Data Sources for Zone Layers
+Layer
+Data Source
+Format / Notes
+Flood Zones
+FEMA National Flood Hazard Layer (NFHL)
+GeoJSON via FEMA API; free, no key needed
+Fire Hazard Zones
+CAL FIRE FHSZ Maps
+Shapefiles converted to GeoJSON; publicly available
+Tsunami Zones
+CA Geological Survey Tsunami Inundation Maps
+GeoJSON download; covers Santa Cruz & Monterey coast
+Fault Lines
+USGS Quaternary Fault Database
+GeoJSON; shows San Andreas and related faults
+Evacuation Zones
+Santa Cruz County / Monterey County OES
+Zone boundary polygons; may need to digitize from PDF maps
+
+Module B: Real-Time Community Storm Reports
+A crowdsourced feed where any authenticated user can submit and view live storm/hazard reports for the CA-19 area. Reports are shown in both a chronological feed and on the Zone Finder Map.
+User Stories
+	•	Submit Report: I can submit a report with: hazard category, text description (max 280 chars), optional photo, and auto-detected or pin-dropped location.
+	•	View Feed: I scroll through a chronological feed filtered by category or recency.
+	•	Map Integration: Report pins appear on the Zone Finder Map, color-coded by category.
+	•	Confirm / Flag: I can tap 'Confirm' to verify a report (boosting visibility) or 'Flag' to report misinformation.
+	•	Severity Auto-Tag: Reports with 5+ confirmations in 30 minutes are auto-tagged as 'Verified — High Activity.'
+Report Categories
+Category
+Icon
+Pin Color
+Example
+Hazard Link
+Flooding
+Wave
+Blue #2E86C1
+"Water over River St & Hwy 1"
+Atmospheric River
+Road Closure
+Barrier
+Red #E74C3C
+"Hwy 17 closed at summit"
+Mudslide / Storm
+Power Outage
+Lightning
+Orange #F39C12
+"No power in Scotts Valley"
+PG&E PSPS / Storm
+Wildfire / Smoke
+Fire
+Dark Red #922B21
+"Heavy smoke Bear Creek Rd"
+Wildfire
+Downed Tree
+Tree
+Green #27AE60
+"Tree blocking Graham Hill"
+Storm / Wind
+Earthquake Damage
+Globe
+Purple #6C3483
+"Cracked road on Soquel Dr"
+Earthquake
+Tsunami Warning
+Wave Alert
+Navy #1B4F72
+"Harbor surge reported"
+Tsunami
+Mudslide
+Mountain
+Brown #784212
+"Debris flow on Alba Rd"
+Post-fire + Rain
+
+Module C: Tailored Disaster Checklists
+Not a generic checklist — a geographic checklist. Users select their zone (Coastal or Mountain) and the app generates a preparedness checklist covering all relevant hazards with zone-specific items.
+The Twist That Makes This Special
+A coastal resident in Monterey needs sandbags, high-tide schedules, and salt-spray-protected documents. A mountain resident in the Santa Cruz Mountains needs tire chains, a backup generator for PG&E outages, and knowledge of landslide warning signs (cracking soil, leaning trees). Generic apps miss all of this.
+
+User Stories
+	•	Choose Zone: I pick Coastal or Mountain and my checklist auto-populates with items specific to my risks.
+	•	Multi-Hazard Sections: My checklist is organized by hazard type (earthquake, wildfire, flood, tsunami, general) so I can prepare for each threat.
+	•	Check Off & Track: I tap items to mark 'Ready' and see my overall preparedness score as a percentage.
+	•	Family Sharing: I can share my checklist via link so family members can see what is still needed.
+	•	Info Tooltips: Each item has a small (i) icon explaining why it matters (e.g., 'Why N95 masks? Wildfire smoke contains PM2.5 particles...').
+Earthquake Preparedness
+Item
+Both Zones
+Zone-Specific
+Structural Safety
+Secure heavy furniture to walls, know gas shutoff valve location, identify safe spots in each room
+Mountain: check foundation for cracks. Coastal: earthquake + tsunami = double evac plan.
+Supplies
+Wrench to shut off gas, heavy-duty shoes by bed, hard hat or helmet
+Mountain: extra water (well pumps fail). Coastal: life jacket (earthquake + tsunami combo).
+Communication
+Family reunion point, out-of-area emergency contact, earthquake early warning app (MyShake)
+Both: practice Drop-Cover-Hold On drill monthly
+
+Wildfire Preparedness
+Item
+Mountain Zone (Primary)
+Coastal Zone (Lower Risk)
+Go-Bag
+Pre-packed bag with N95 masks, prescriptions (7 days), phone charger, cash, IDs, change of clothes, pet supplies
+Same basics but lower urgency; keep a light go-bag in car
+Defensible Space
+Clear 100ft around home: remove dead brush, trim tree branches 10ft from roof, clean gutters
+N/A for most coastal residents
+AQI Monitoring
+Bookmark AirNow.gov; when AQI > 150, stay indoors with windows sealed; run HEPA filter
+Monitor during nearby fires; smoke travels to coast
+Evacuation Route
+Know 2 routes out (mountain roads can close); keep car gas tank above half
+Know route away from coast if fire approaches from hills
+Fire Extinguisher
+One per floor; ABC-rated; know how to use (PASS technique)
+One in kitchen minimum
+
+Flood / Atmospheric River Preparedness
+Item
+Coastal Zone (Primary)
+Mountain Zone
+Sandbags
+Know sandbag distribution locations; pre-fill 20+ bags if in flood zone
+Useful for diverting runoff from driveway/foundation
+Water Protection
+Waterproof document bag, elevated storage for valuables, water purification tablets
+Same; plus protect well pump equipment
+Tide Awareness
+Bookmark tide schedules; king tides + atmospheric river = worst flooding
+N/A
+Road Kit
+Know which roads flood first (Hwy 1 near Pajaro); plan alternate routes
+Chains for tires; know which mountain roads close first
+Sump Pump
+Battery-backup sump pump if in low-lying area
+Useful if near creek or drainage
+
+Tsunami Preparedness (Coastal Zone Only)
+Item
+Details
+Know Your Zone
+Check if you're in a tsunami inundation zone (Zone Finder shows this); if yes, know your vertical evacuation point
+Evacuation Trigger
+If you feel strong shaking lasting 20+ seconds AND you're near the coast, move to high ground immediately
+Go Higher, Not Further
+Tsunami safety = elevation, not distance; a hill 5 minutes away is better than driving 20 minutes inland
+Harbor/Beach Protocol
+If at Santa Cruz Harbor or beach, move inland and uphill immediately upon warning; waves can arrive in minutes
+Supplies
+Keep running shoes accessible; waterproof flashlight; whistle; know route by heart (no phone needed)
+
+General Preparedness (Both Zones)
+Category
+Items
+Notes
+Water & Food
+1 gal water/person/day (7 days), non-perishable food, manual can opener, pet food, baby supplies
+Store in cool, dark place; rotate every 6 months
+First Aid
+Complete first aid kit, 7-day prescription meds, OTC pain/allergy meds, glasses/contacts backup
+Add N95 masks and hand sanitizer
+Power & Comms
+Hand-crank NOAA radio, flashlights, extra batteries, portable phone charger (10,000+ mAh), solar charger
+Mountain: add generator + fuel. Coastal: waterproof radio.
+Documents
+Copies of IDs, insurance policies, medical records, emergency contacts, cash ($200 in small bills)
+Store in waterproof bag; keep digital copies in cloud
+Tools
+Multi-tool, duct tape, wrench (utility shutoff), tarp, rope, garbage bags, local paper maps
+Mountain: add chainsaw/axe. Coastal: add sandbag supplies.
+
+Module D: Offline Mode Protocol
+Why This Is MVP, Not a Nice-to-Have
+During CA-19 storms, cell towers go down in the mountains and Big Sur. An emergency app that doesn't work during emergencies is useless. Offline Mode is a core feature, not a stretch goal.
+
+StormReady CA19's Offline Mode includes an 'Emergency PDF Generator' that creates a downloadable one-page summary accessible with zero internet.
+What the Emergency PDF Contains
+	•	Evacuation Zone ID: Your zone code and nearest evacuation route with turn-by-turn directions
+	•	Local Emergency Numbers: Santa Cruz County OES, Monterey County OES, PG&E outage line, poison control, non-emergency police
+	•	Your Checklist Status: Snapshot of your disaster kit checklist with checked/unchecked items
+	•	Nearest Shelters: Pre-cached list of Red Cross shelters and community centers in your zone
+	•	Family Reunion Point: User-entered meeting point address for family reunification
+Technical Implementation
+	•	PDF Generation: Use the browser's built-in print-to-PDF capability via a styled HTML page, or the jsPDF library for programmatic generation.
+	•	Caching: Service Worker caches the last 50 reports and all checklist data. When offline, the app shows a banner: 'You are offline — showing cached data.'
+	•	Prompt to Download: After a user completes their checklist, a prominent button says: 'Download Your Emergency PDF — Works Without Internet.'
+	•	Storage: PDF is saved to the phone's local storage (Downloads folder); also accessible via the app's offline cache.
+
+Module E: Bilingual Support (English / Spanish)
+Why Bilingual Is Essential for CA-19
+Watsonville and Salinas have populations that are over 75% Hispanic/Latino, with many households where Spanish is the primary language. A disaster app that only works in English fails the people who need it most. Bilingual support is an accessibility and equity requirement.
+
+Implementation Plan
+	•	Language Toggle: Persistent toggle in the top navigation bar: EN | ES. Selection is saved to user profile and persists across sessions.
+	•	i18n Library: Use react-i18next (the most popular React internationalization library). All user-facing strings live in JSON translation files.
+	•	Translation Scope: All UI text, all checklist items and descriptions, all category labels, all tooltips, zone cards, and the Emergency PDF.
+	•	Community Reports: User-submitted reports stay in original language but category labels and UI chrome translate. Future: add auto-translate button per report.
+	•	Translation Quality: Initial translations via AI (Claude/GPT), then reviewed by a native Spanish speaker from the community for accuracy.
+
+
+5. Future Features (Post-MVP)
+These features are out of scope for the Congressional App Challenge submission but documented for future development:
+	•	Push Notifications: Send alerts for new high-severity reports near user's saved location via Firebase Cloud Messaging.
+	•	Official Alerts Integration: Pull live feeds from CAL FIRE, NWS, USGS, and CalTrans APIs; display alongside community reports with a 'Verified Official' badge.
+	•	AQI Dashboard: Embed real-time Air Quality Index from AirNow API with health recommendations at each level.
+	•	Community Preparedness Score: Aggregate anonymized checklist data to show neighborhood-level readiness (e.g., 'Scotts Valley: 62% prepared').
+	•	Moderation Dashboard: Admin panel for flagging/removing false reports; trusted reporter badges for verified community members.
+	•	Accessibility (WCAG AA): Screen reader support, keyboard navigation, high-contrast mode.
+	•	Native Mobile App: Convert to React Native or PWA with install prompt for home screen.
+
+6. Technical Specification
+7th-Grader Friendly Stack
+Every tool in this stack is free, well-documented, beginner-friendly, and commonly taught in introductory coding courses. No paid services or credit cards required. If Arya gets stuck, every technology here has YouTube tutorials and active communities.
+
+6.1 Architecture Overview
+The app follows a simple client-server architecture: a React front-end talks to a Firebase back-end. No custom server code is required.
+Layer
+Technology
+Why This Choice
+Front-End
+React 18 (via Vite)
+Most-taught JS framework; huge community; fast dev server
+Styling
+Tailwind CSS
+Utility classes = no CSS files; beginner-friendly; responsive built-in
+Back-End / DB
+Firebase (Firestore + Auth + Storage)
+No server to manage; generous free tier; real-time sync
+Maps
+Leaflet.js + OpenStreetMap
+100% free and open source; no API key; supports GeoJSON layers
+Internationalization
+react-i18next
+Most popular React i18n library; simple JSON translation files
+Offline / PDF
+Service Worker + jsPDF
+Built-in browser tech for caching; jsPDF is lightweight and free
+Hosting
+Firebase Hosting (free tier)
+One-command deploy; free SSL; fast CDN
+Version Control
+GitHub
+Required for Congressional App Challenge; free for students
+Code Editor
+VS Code
+Free; extensions for React, Tailwind, Firebase; built-in terminal
+
+6.2 External Data Sources
+Source
+Data
+Access
+Cost
+FEMA NFHL
+Flood zone boundaries
+REST API + GeoJSON
+Free, no key
+CAL FIRE
+Fire Hazard Severity Zone maps
+Shapefile download to GeoJSON
+Free, public
+CA Geological Survey
+Tsunami inundation zones
+GeoJSON download
+Free, public
+USGS
+Fault lines + earthquake data
+REST API + GeoJSON
+Free, no key
+AirNow
+Air Quality Index (AQI)
+REST API
+Free key (free tier)
+OpenStreetMap
+Base map tiles
+Tile URL (no key)
+Free, attribution required
+Browser Geolocation
+User GPS coordinates
+Built-in browser API
+Free, requires HTTPS
+County OES
+Evacuation zone boundaries
+PDF maps (may need digitizing)
+Free, public records
+
+6.3 Firebase Security Rules
+Firestore rules ensure data safety without a custom back-end:
+	•	Anyone (even logged-out users) can READ reports and checklist templates.
+	•	Only authenticated users can CREATE new reports.
+	•	Users can only UPDATE or DELETE their own reports (authorId must match auth UID).
+	•	Users can only READ/WRITE their own checklist progress and profile.
+	•	Rate limit: max 10 reports per user per hour (enforced via client-side throttle + Firestore rules).
+	•	Image uploads limited to 2MB per file (enforced in Storage rules).
+
+7. Data Models
+7.1 Storm Report (Firestore: reports)
+Field
+Type
+Description
+Validation
+id
+string
+Auto-generated Firestore doc ID
+Auto
+category
+string
+flooding | road_closure | power_outage | wildfire | downed_tree | earthquake | tsunami | mudslide
+Required; enum
+description
+string
+User-entered text
+Required; max 280 chars
+photoURL
+string | null
+Firebase Storage download URL
+Optional; max 2MB
+latitude
+number
+GPS latitude
+Required; -90 to 90
+longitude
+number
+GPS longitude
+Required; -180 to 180
+locationName
+string
+Human-readable place name
+Optional; max 100 chars
+authorId
+string
+Firebase Auth UID
+Required; auto from auth
+authorName
+string
+Display name
+Required; max 50 chars
+confirmCount
+number
+User confirmations
+Default: 0
+flagCount
+number
+Misinformation flags
+Default: 0
+isVerified
+boolean
+True when confirmCount >= 5 in 30 min
+Default: false
+language
+string
+Language of report text (en or es)
+Auto-detect
+createdAt
+timestamp
+Server timestamp
+Auto
+
+7.2 User Profile (Firestore: users)
+Field
+Type
+Description
+userId
+string
+Firebase Auth UID (doc ID)
+displayName
+string
+User's display name
+zone
+string
+"coastal" or "mountain" (user-selected)
+evacuationZoneId
+string
+Auto-detected zone ID (e.g., SCZ-E030)
+language
+string
+"en" or "es" (preferred language)
+checkedItems
+array<string>
+Array of checklist item IDs marked ready
+familyReunionPoint
+string
+Meeting point address for Emergency PDF
+lastUpdated
+timestamp
+Last profile/checklist update
+
+7.3 Key Pages & Routes
+Route
+Page
+Description
+/
+Zone Finder (Home)
+Auto-detects location, shows evacuation zone on map with hazard layers
+/feed
+Report Feed
+Chronological feed of community storm reports with category filters
+/map
+Full Map View
+Leaflet map with report pins + zone layers; tap pin for details
+/report/new
+Submit Report
+Form: category picker, text, photo upload, location picker
+/checklist
+Disaster Checklist
+Zone toggle, organized by hazard, progress tracking
+/offline
+Emergency PDF
+Generate + download offline emergency summary PDF
+/login
+Login / Sign Up
+Firebase Auth: email/password or Google sign-in
+/settings
+Settings
+Language toggle, zone preference, family reunion point
+
+8. UI/UX Design Guidelines
+8.1 Design Principles
+	•	Emergency-first clarity: Every element must be instantly understandable during a stressful, possibly life-threatening situation.
+	•	Big tap targets: All buttons at least 48x48px; category chips are large and tappable on a wet phone screen.
+	•	High contrast: WCAG AA contrast ratios minimum; avoid light gray text on white.
+	•	Mobile-first: 80%+ of users will be on phones. Design for 375px-wide screen first, then scale up.
+	•	Progressive disclosure: Show critical info (zone ID, active alerts, top reports) first; details on tap.
+	•	Bilingual by design: All UI elements must accommodate Spanish text (which is ~15% longer than English).
+	•	Offline-aware: Always show connection status; degrade gracefully when offline.
+
+8.2 Color System
+Role
+Hex
+Usage
+Primary
+#1B4F72
+Header bar, primary buttons, headings, Zone Finder card
+Accent
+#2E86C1
+Links, active states, progress bar, flooding pins
+Background
+#F4F6F7
+Page background (light gray, not pure white)
+Surface
+#FFFFFF
+Cards, modals, input fields
+Danger / Fire
+#E74C3C
+Road closures, wildfire alerts, high-severity badges
+Warning
+#F39C12
+Power outages, moderate severity
+Success / Ready
+#27AE60
+Checklist 'ready' items, confirmed reports, low risk zones
+Earthquake
+#6C3483
+Earthquake report pins, fault line overlay
+Offline Banner
+#1A1A2E
+Dark banner at top when offline
+
+8.3 Key Screen Layouts
+Zone Finder (Home Screen)
+	•	Full-screen Leaflet map with the user's location pin centered and pulsing.
+	•	Overlay card at bottom: shows Evacuation Zone ID in large bold text, primary risk badges, and 'View My Checklist' CTA button.
+	•	Layer toggle FAB (floating action button) in top-right: lets user turn on/off flood, fire, tsunami, fault overlays.
+	•	Language toggle (EN | ES) in top-left corner.
+	•	Bottom navigation: 4 tabs — Zone Finder (compass icon), Feed (list icon), Map (map icon), Checklist (clipboard icon).
+Report Feed Screen
+	•	Top bar: 'StormReady CA19' left, '+ Report' button right.
+	•	Horizontally scrollable category filter chips (All, Flooding, Road Closure, Wildfire, etc.).
+	•	Report cards: category icon + colored badge, description text, location name, time ago, confirm count with tap-to-confirm, flag button.
+	•	Verified reports get a green 'Verified' badge.
+	•	Pull-to-refresh and infinite scroll pagination (20 reports per load).
+Checklist Screen
+	•	Zone toggle at top: two large buttons — 'Coastal / Costa' and 'Mountain / Montana' with active state.
+	•	Overall progress bar showing % of items checked.
+	•	Sections grouped by hazard type (Earthquake, Wildfire, Flood, Tsunami, General) as collapsible accordions.
+	•	Each item: checkbox, item name, (i) info icon with tooltip, zone badge if zone-specific.
+	•	Bottom sticky bar: 'Download Emergency PDF' button.
+
+9. Development Plan (10-Week Sprint)
+This timeline is designed for Arya working about 5 to 10 hours per week alongside school. Each week has a clear, shippable deliverable.
+Week
+Focus
+Tasks
+Deliverable
+1
+Setup & Scaffold
+Install Node.js + VS Code, create React app with Vite, set up Firebase project, init GitHub repo, configure Tailwind CSS, install react-i18next
+Empty app builds + deploys; EN/ES toggle wired
+2
+Authentication
+Firebase Auth (email + Google sign-in), login/signup page, protected routes, user profile in Firestore
+Users can sign up, log in, set zone preference
+3
+Zone Finder Map
+Integrate Leaflet.js, add OpenStreetMap tiles, implement GPS auto-detect, load evacuation zone GeoJSON, display zone ID card
+User opens app and sees their zone on map
+4
+Hazard Layers
+Add FEMA flood, CAL FIRE, tsunami, and fault line GeoJSON layers with toggle controls
+All hazard layers visible and togglable
+5
+Reports: Submit
+Build Submit Report form (category picker, text, photo upload, geolocation/pin-drop), save to Firestore
+Users can submit reports to database
+6
+Reports: Feed + Map
+Build Feed page with real-time Firestore listener, category filters, confirm/flag; plot pins on map
+Live feed + map pins with real data
+7
+Disaster Checklist
+Build zone toggle, create checklist JSON (by hazard x zone), check/uncheck with Firestore save, progress bar
+Full interactive checklist with zone items
+8
+Offline + PDF
+Service Worker for caching, Emergency PDF generator (jsPDF), offline banner, 'Download PDF' button
+Downloadable PDF; app works offline
+9
+Bilingual + Polish
+Complete Spanish translations, test EN/ES toggle, responsive fixes, accessibility audit, error states
+App fully bilingual; smooth on mobile/desktop
+10
+Test + Submit
+Full testing on real devices, record 2-min demo video, write Challenge description, README, community interviews, submit
+Complete Challenge submission
+
+
+10. Testing Plan
+10.1 Manual Testing Checklist
+	•	Create account with email/password → verify success
+	•	Create account with Google sign-in → verify success
+	•	Open app with location permission → Zone Finder shows correct zone ID
+	•	Toggle each hazard layer on/off → layers appear/disappear correctly
+	•	Submit a report with all fields → appears in feed within 5 seconds
+	•	Submit a report without login → blocked / redirected to login
+	•	Filter feed by each category → only matching reports show
+	•	Confirm a report → count increases; can only confirm once
+	•	Flag a report → flag count increases
+	•	Open map view → all report pins display in correct category colors
+	•	Tap a map pin → bottom sheet shows full report details
+	•	Toggle between Coastal and Mountain → checklist items update correctly
+	•	Check off items → progress bar updates; state persists on page reload
+	•	Download Emergency PDF → PDF contains zone ID, contacts, checklist snapshot
+	•	Turn off WiFi → app shows offline banner + cached data; PDF still accessible
+	•	Switch language to Spanish → all UI text, checklist items, and labels translate
+	•	Switch back to English → everything reverts; no broken strings
+	•	Test on iPhone Safari, Android Chrome, and desktop Chrome → no layout breaks
+
+10.2 Automated Tests (Stretch Goal)
+If time allows, add basic tests using React Testing Library and Vitest:
+	•	Unit: report form validation (blocks empty description, enforces 280-char limit, requires category)
+	•	Unit: zone toggle switches checklist items correctly
+	•	Unit: confirm button increments count and disables after one tap
+	•	Unit: i18n returns correct string for EN and ES keys
+	•	Snapshot: all key components render without crashing
+
+11. Success Metrics
+Success metrics focus on functionality, quality, community relevance, and presentation.
+Metric
+Target
+How to Measure
+MVP features complete
+100% of Modules A through E functional
+Manual testing checklist (Section 10.1)
+Mobile responsive
+No layout breaks on 375px to 428px screens
+Chrome DevTools + real iPhone + Android
+Page load speed
+< 3 seconds on 4G connection
+Chrome Lighthouse Performance audit
+Accessibility
+Lighthouse score > 85
+Chrome Lighthouse Accessibility audit
+Bilingual coverage
+100% of UI strings in both EN and ES
+Manual walkthrough in Spanish mode
+Offline functionality
+Cached data + PDF accessible with no internet
+Airplane mode test on real device
+Community validation
+Feedback from 5+ Central Coast residents
+Informal interviews; quotes in demo video
+Demo video quality
+Clear, compelling, under 2 minutes
+Peer review before submission
+Code quality
+Clean GitHub repo with README and comments
+Self-review + mentor review
+
+12. Risks & Mitigations
+Risk
+Likelihood
+Impact
+Mitigation
+Fake / spam reports
+Medium
+High
+Require login; confirm/flag system; rate limit 10/hr; auto-hide at 3+ flags
+Firebase free tier limits
+Low
+Medium
+Compress images to 500KB; paginate 20/load; sufficient for demo
+GeoJSON data quality
+Medium
+Medium
+Cross-reference sources; add 'for preparedness only' disclaimer
+Scope creep
+High
+High
+Strict MVP: Modules A-E only; future features are post-submission
+Geolocation denied
+Medium
+Low
+Fallback: manual address entry or map pin drop
+Translation errors
+Medium
+Medium
+AI first pass, then community review by native speaker
+Offline complexity
+Medium
+Medium
+Start simple: cache checklist + PDF only; skip full feed caching
+Learning curve
+High
+Medium
+Follow tutorials; use Claude as coding tutor; ask mentor by Week 3
+
+13. Congressional App Challenge Alignment
+This section maps StormReady CA19 to the Congressional App Challenge judging criteria.
+Criterion
+How StormReady CA19 Addresses It
+Quality of the App
+Fully functional MVP with 5 integrated modules, real-time data, interactive map with official hazard layers, responsive design, and offline capability. Tested on multiple devices.
+Impact on Community
+Directly addresses a documented gap in CA-19 disaster communication. Covers every major local hazard. Validated by Central Coast resident interviews. Bilingual support ensures no community is left behind.
+Creativity & Innovation
+Combines GPS zone detection, crowdsourced reporting, geography-specific checklists, offline emergency PDFs, and bilingual support in one tool tailored to CA-19's unique risk profile.
+Technical Competence
+Modern web stack (React, Firebase, Leaflet, Service Workers, i18n) with real external data sources (FEMA, USGS, CAL FIRE). Clean GitHub repo with documentation.
+Presentation
+2-minute demo video: live app walkthrough, Arya's personal story, community interview clips, and the offline Emergency PDF feature that works when cell towers fail.
+
+Ready to Build, Arya!
+This PRD gives you the complete blueprint. Start with Week 1 (setup), follow the plan, and you'll have a submission-ready app in 10 weeks. Remember: done is better than perfect. Ship the MVP first, improve later. You're building something that can genuinely help your community stay safer. That's what the Congressional App Challenge is all about. Let's go!
+

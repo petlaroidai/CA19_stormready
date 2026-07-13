@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StormReady CA19 - Hazard Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#ecb2ff",
+                    "secondary": "#006397",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#521a69",
+                    "inverse-surface": "#2e3132",
+                    "surface-container": "#eceeef",
+                    "on-error": "#ffffff",
+                    "primary-container": "#1b4f72",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#41474e",
+                    "on-surface": "#191c1d",
+                    "on-primary-fixed-variant": "#154b6d",
+                    "secondary-container": "#71c0fe",
+                    "background": "#f8fafb",
+                    "surface-tint": "#326286",
+                    "on-tertiary-container": "#e5a4fc",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary-fixed": "#001e31",
+                    "on-background": "#191c1d",
+                    "primary": "#003857",
+                    "outline": "#72787f",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#004b73",
+                    "tertiary-fixed": "#f8d8ff",
+                    "on-tertiary-fixed": "#320046",
+                    "tertiary-container": "#6b3382",
+                    "primary-fixed-dim": "#9dcbf4",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#cce5ff",
+                    "primary-fixed": "#cce5ff",
+                    "on-primary-container": "#92c0e9",
+                    "surface-dim": "#d8dadb",
+                    "surface-container-low": "#f2f4f5",
+                    "surface-bright": "#f8fafb",
+                    "on-secondary-fixed": "#001d31",
+                    "surface-container-high": "#e6e8e9",
+                    "on-secondary-container": "#004d77",
+                    "inverse-primary": "#9dcbf4",
+                    "on-tertiary-fixed-variant": "#662e7d",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e1e3e4",
+                    "outline-variant": "#c1c7cf",
+                    "inverse-on-surface": "#eff1f2",
+                    "surface": "#f8fafb",
+                    "secondary-fixed-dim": "#92ccff",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,56,87,0.06)]">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 hover:bg-[#f2f4f5] dark:hover:bg-slate-800 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[#003857] dark:text-[#71c0fe]">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] font-bold tracking-tight text-lg text-[#003857] dark:text-[#71c0fe]">Hazard Detail</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 duration-200 hover:bg-[#f2f4f5] dark:hover:bg-slate-800 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[#003857] dark:text-[#71c0fe]">share</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-20 px-6 max-w-3xl mx-auto space-y-10">
+<!-- Header Section -->
+<header class="space-y-4 pt-4">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-4xl font-black tracking-tight text-primary leading-tight">Flood Zone A</h2>
+<p class="text-secondary font-semibold text-sm tracking-widest mt-1 uppercase">Sacramento County District 12</p>
+</div>
+<div class="bg-error/10 border border-error/20 px-4 py-2 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-error font-bold text-xs tracking-wider uppercase">High Risk</span>
+</div>
+</div>
+<div class="h-48 w-full rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="dramatic aerial view of a river overflowing its banks near a residential area with muddy water and dark storm clouds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu2FQ8H8iHU7vWSadVGoqQVlGdgfAIT3X-WQq6B4EJXLmFHOdSzFKwlQjJzbTzYnzjS39GuJGTIwYnEEdkzdnqlufT2ll4j1jTKnzDkOQnDWWg80SQ01jLrI5DL5gbr8qUwY-ZgDPu8hgs7oOTGlLOTUVqS5bE1DzZrwW5_odXX5DLi6dYuvdF9h2SN1xlfkOyczN6pKTYB-bN5bHs9lSo6wY1QGXBunxgwOocdMLYnNaiXOnJBh8bmOQn_9WGsL-nejVOQs5ukg"/>
+</div>
+</header>
+<!-- Bilingual Description (Editorial Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+<div class="space-y-3">
+<h3 class="text-xs font-bold text-secondary uppercase tracking-[0.1em]">Hazard Summary</h3>
+<p class="text-lg font-medium text-on-surface leading-relaxed">
+                    Prone to flash flooding during atmospheric rivers and severe storm surges from the American River basin.
+                </p>
+</div>
+<div class="space-y-3 md:border-l border-outline-variant md:pl-8">
+<h3 class="text-xs font-bold text-outline uppercase tracking-[0.1em]">Resumen de Peligros</h3>
+<p class="text-md text-on-surface-variant leading-relaxed italic">
+                    Propenso a inundaciones repentinas durante ríos atmosféricos y marejadas ciclónicas graves de la cuenca del río Americano.
+                </p>
+</div>
+</section>
+<!-- Safety Actions (Bento Cards) -->
+<section class="space-y-6">
+<h3 class="text-xl font-bold text-primary tracking-tight">Required Safety Actions</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Action 1 -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">inventory_2</span>
+<h4 class="font-bold text-primary">Have sandbags ready</h4>
+<p class="text-sm text-on-surface-variant leading-snug">Maintain a stock of at least 15 sandbags at entry points.</p>
+</div>
+<!-- Action 2 -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">route</span>
+<h4 class="font-bold text-primary">Know your route</h4>
+<p class="text-sm text-on-surface-variant leading-snug">Identify the primary and secondary exits from your street.</p>
+</div>
+<!-- Action 3 -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4 hover:bg-surface-container-high transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">radio</span>
+<h4 class="font-bold text-primary">Emergency Radio</h4>
+<p class="text-sm text-on-surface-variant leading-snug">Keep a battery-operated NOAA weather radio tuned to 162.550 MHz.</p>
+</div>
+<!-- Action 4 -->
+<div class="bg-primary-container text-white p-6 rounded-xl space-y-4">
+<span class="material-symbols-outlined text-secondary-container text-3xl" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<h4 class="font-bold">Alerts Enabled</h4>
+<p class="text-sm text-on-primary-container leading-snug">You are currently receiving push notifications for this zone.</p>
+</div>
+</div>
+</section>
+<!-- Evacuation Route (Map Viewport Style) -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-6 pb-0">
+<h3 class="text-xl font-bold text-primary tracking-tight">Primary Evacuation Route</h3>
+<p class="text-on-surface-variant mt-2 text-sm">Northbound via Highway 99 to Grant Line Road Shelter.</p>
+</div>
+<div class="relative h-64 mt-6 group">
+<img class="w-full h-full object-cover" data-alt="stylized modern digital map showing highway routes with glowing blue indicator lines and a destination marker" data-location="Sacramento, California" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf1PUVKAVeCNyDQYQBkQk6dhZjkFByBpKyXUJhvIlTsbFpZt3ctrYmyDyy3SvJEMRWew-bTb8cE-lRxnQ9FnYRi8J801UiHXCZ22-o1x9hB_ZoJPkaVgCDL1ZqeC6qB9kYykKSryFyT_B3bY5BZ49IFnAm6ygFruhN_ID3wY5XlUjVKuYCh1JfilrZGhDxHFuxWgwWnSUIzr5gbb5RJM4Y9kVUhZlJk9c5AXhRG9bR2avFTqTgZxT8RqrYgiob63S7LhmWaBrIcA"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-500"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">map</span>
+                        View Interactive Map
+                    </button>
+</div>
+</div>
+</section>
+<!-- Emergency Contacts (Minimal List) -->
+<section class="space-y-4">
+<h3 class="text-xs font-bold text-secondary uppercase tracking-[0.1em]">Emergency Resources</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border-l-4 border-primary">
+<div>
+<p class="text-xs text-outline font-semibold">County OES</p>
+<p class="font-bold text-primary text-lg">(916) 874-4670</p>
+</div>
+<button class="bg-surface-container-low p-3 rounded-full text-primary hover:bg-surface-container-high active:scale-90 transition-all">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border-l-4 border-secondary">
+<div>
+<p class="text-xs text-outline font-semibold">Red Cross Shelter Line</p>
+<p class="font-bold text-primary text-lg">1-800-RED-CROSS</p>
+</div>
+<button class="bg-surface-container-low p-3 rounded-full text-primary hover:bg-surface-container-high active:scale-90 transition-all">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-slate-50/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-[0_-8px_24px_rgba(0,56,87,0.06)] rounded-t-[28px]">
+<div class="flex justify-around items-center px-4 pt-3 pb-8 max-w-screen-2xl mx-auto">
+<!-- Explore Tab -->
+<button class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-12 h-12 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">explore</span>
+</button>
+<!-- List/Active Tab (Hazard Detail logically sits under List or Alert Context) -->
+<button class="flex flex-col items-center justify-center bg-[#1B4F72] text-white rounded-2xl w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+</button>
+<!-- Map Tab -->
+<button class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-12 h-12 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">map</span>
+</button>
+<!-- Assignment Tab -->
+<button class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-12 h-12 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">assignment</span>
+</button>
+</div>
+</nav>
+</body></html>

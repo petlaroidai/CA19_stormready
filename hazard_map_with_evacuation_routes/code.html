@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d8dadb",
+                    "surface-container-low": "#f2f4f5",
+                    "background": "#f8fafb",
+                    "tertiary-container": "#6b3382",
+                    "tertiary-fixed-dim": "#ecb2ff",
+                    "tertiary-fixed": "#f8d8ff",
+                    "surface-container": "#eceeef",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#662e7d",
+                    "on-background": "#191c1d",
+                    "outline": "#72787f",
+                    "primary-fixed-dim": "#9dcbf4",
+                    "primary-fixed": "#cce5ff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-surface-variant": "#41474e",
+                    "tertiary": "#521a69",
+                    "surface-container-high": "#e6e8e9",
+                    "inverse-primary": "#9dcbf4",
+                    "on-tertiary-fixed": "#320046",
+                    "on-primary-fixed-variant": "#154b6d",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c1c7cf",
+                    "secondary-container": "#71c0fe",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary": "#003857",
+                    "on-primary-fixed": "#001e31",
+                    "surface-variant": "#e1e3e4",
+                    "secondary": "#006397",
+                    "on-tertiary-container": "#e5a4fc",
+                    "surface-bright": "#f8fafb",
+                    "surface-tint": "#326286",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#92c0e9",
+                    "secondary-fixed-dim": "#92ccff",
+                    "secondary-fixed": "#cce5ff",
+                    "surface": "#f8fafb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#004b73",
+                    "on-secondary-container": "#004d77",
+                    "inverse-on-surface": "#eff1f2",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1b4f72",
+                    "on-surface": "#191c1d",
+                    "on-secondary-fixed": "#001d31"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .map-overlay-layer { pointer-events: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body select-none">
+<!-- TopAppBar -->
+<header class="bg-slate-50/70 dark:bg-blue-950/70 backdrop-blur-md text-blue-900 dark:text-blue-100 docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-4">
+<button class="hover:bg-blue-50/50 dark:hover:bg-blue-900/50 transition-colors scale-95 active:duration-150 p-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-inter tracking-tight font-bold text-lg text-blue-900 dark:text-blue-50 font-black tracking-tighter">Hazard Map</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label text-sm font-bold tracking-widest px-3 py-1 rounded-full border border-primary/20 bg-primary/5">EN</button>
+<button class="font-label text-sm font-medium text-outline px-1">ES</button>
+</div>
+</header>
+<main class="relative h-[calc(100vh-140px)] w-full overflow-hidden bg-surface-dim">
+<!-- Interactive Map Base -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="Detailed topographic grayscale map of a coastal urban district with intricate street networks and mountain contours" data-location="California District 19" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSLGyfyW-o77T-C9ImKS9NQzuHzWYuVe_t71AlM1-WVxysE5c0JVkWzfinJPkifSsqZ6iYTQmQkJ5p_xca8PFz-qDgN98TiTe0OxVxRISa39caIMddCaN2Zl40XGTCmPR6tVczcsPsFAjIeSw6M5szQUBmyjIDf2s0-AgJNahn0rNowOGwOSg2nofkw0t_kIRt_fDRRqk3B0RikELQKnRwjz5bK6FJr4jmAa-JV8HSGO5AwZSR5CjQ0FxDmiAtnZM93iaGVAEBqg"/>
+<!-- SVG Map Overlays (Hazard Zones + Evacuation Routes) -->
+<svg class="absolute inset-0 w-full h-full opacity-50 map-overlay-layer" preserveaspectratio="none" viewbox="0 0 1000 1000">
+<defs>
+<marker id="arrowhead" markerheight="7" markerwidth="10" orient="auto" refx="0" refy="3.5">
+<polygon fill="#1B4F72" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+</defs>
+<!-- Flood Zone (Blue) -->
+<path d="M100,600 Q250,550 400,650 T700,600 L800,800 L200,900 Z" fill="#006397"></path>
+<!-- Fire Hazard (Orange) -->
+<path d="M600,100 Q750,150 850,50 T950,200 L900,400 L550,300 Z" fill="#ba1a1a" opacity="0.6"></path>
+<!-- Tsunami Zone (Navy) -->
+<path d="M0,800 L300,750 L350,1000 L0,1000 Z" fill="#003857"></path>
+<!-- Fault Line (Purple) -->
+<path d="M300,0 L500,400 L450,700 L600,1000" fill="none" stroke="#521a69" stroke-dasharray="12 12" stroke-width="8"></path>
+<!-- Evacuation Routes (Blue #1B4F72) -->
+<path d="M400,500 L600,700 L800,750" fill="none" marker-end="url(#arrowhead)" stroke="#1B4F72" stroke-width="12"></path>
+<path d="M500,300 L300,100 L100,50" fill="none" marker-end="url(#arrowhead)" stroke="#1B4F72" stroke-width="12"></path>
+<path d="M700,400 L900,600 L950,800" fill="none" marker-end="url(#arrowhead)" stroke="#1B4F72" stroke-width="12"></path>
+</svg>
+<!-- Real-time Report Pins -->
+<div class="absolute top-[65%] left-[30%] z-10 -translate-x-1/2 -translate-y-1/2 group">
+<div class="bg-blue-600 text-white p-1.5 rounded-full shadow-lg border-2 border-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+</div>
+<div class="absolute top-[40%] left-[45%] z-10 -translate-x-1/2 -translate-y-1/2 group">
+<div class="bg-red-600 text-white p-1.5 rounded-full shadow-lg border-2 border-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">block</span>
+</div>
+</div>
+<div class="absolute top-[55%] left-[60%] z-10 -translate-x-1/2 -translate-y-1/2 group">
+<div class="bg-blue-600 text-white p-1.5 rounded-full shadow-lg border-2 border-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+</div>
+<div class="absolute top-[30%] left-[75%] z-10 -translate-x-1/2 -translate-y-1/2 group">
+<div class="bg-red-600 text-white p-1.5 rounded-full shadow-lg border-2 border-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">block</span>
+</div>
+</div>
+<div class="absolute top-[20%] left-[20%] z-10 -translate-x-1/2 -translate-y-1/2 group">
+<div class="bg-amber-500 text-white p-1.5 rounded-full shadow-lg border-2 border-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div></div>
+<!-- Floating Search Bar -->
+<div class="absolute top-4 left-4 right-4 z-20">
+<div class="flex items-center bg-surface-container-lowest shadow-lg rounded-2xl px-4 py-3 border border-outline-variant/10">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface ml-2 placeholder:text-outline/60 font-medium" placeholder="Search address or district..." type="text"/>
+<span class="material-symbols-outlined text-outline ml-2">my_location</span>
+</div>
+</div>
+<!-- Floating Legend Card -->
+<div class="absolute top-20 right-4 z-20">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md shadow-xl rounded-2xl p-4 w-48 border border-outline-variant/10">
+<h3 class="text-[10px] font-black uppercase tracking-[0.15em] text-on-surface-variant mb-3">Hazard Legend</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-sm bg-secondary shadow-inner"></div>
+<span class="text-xs font-bold text-on-surface">Flood Zones</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-sm bg-error shadow-inner"></div>
+<span class="text-xs font-bold text-on-surface">Fire Hazard</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-sm bg-primary shadow-inner"></div>
+<span class="text-xs font-bold text-on-surface">Tsunami</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-4 h-[2px] bg-tertiary"></div>
+<span class="text-xs font-bold text-on-surface">Fault Lines</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-4 h-4">
+<div class="w-4 h-1.5 bg-[#1B4F72] rounded-full relative">
+<div class="absolute -right-1 -top-0.5 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#1B4F72]"></div>
+</div>
+</div>
+<span class="text-xs font-bold text-on-surface">Evac Routes</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-4 bottom-32 flex flex-col gap-2 z-20">
+<button class="w-12 h-12 bg-surface-container-lowest shadow-lg rounded-xl flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">add</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-lowest shadow-lg rounded-xl flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">remove</span>
+</button>
+<button class="w-12 h-12 bg-primary text-on-primary shadow-lg rounded-xl flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<!-- Filter Chips (Horizontal Scrollable) -->
+<div class="absolute bottom-20 left-0 right-0 z-20 px-4 py-4 pointer-events-none">
+<div class="flex gap-3 overflow-x-auto no-scrollbar pointer-events-auto pb-4">
+<button class="flex-none px-6 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm shadow-md transition-all active:scale-95 whitespace-nowrap">
+                    All Hazards
+                </button>
+<button class="flex-none px-6 py-2.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface-variant border border-outline-variant/20 font-bold text-sm shadow-sm transition-all active:scale-95 whitespace-nowrap">
+                    Evacuation
+                </button>
+<button class="flex-none px-6 py-2.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface-variant border border-outline-variant/20 font-bold text-sm shadow-sm transition-all active:scale-95 whitespace-nowrap">
+                    Flood
+                </button>
+<button class="flex-none px-6 py-2.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface-variant border border-outline-variant/20 font-bold text-sm shadow-sm transition-all active:scale-95 whitespace-nowrap">
+                    Fire
+                </button>
+<button class="flex-none px-6 py-2.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface-variant border border-outline-variant/20 font-bold text-sm shadow-sm transition-all active:scale-95 whitespace-nowrap">
+                    Earthquake
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-slate-50/70 dark:bg-blue-950/70 backdrop-blur-xl text-blue-900 dark:text-blue-100 rounded-t-3xl pb-safe z-50 shadow-[0_-8px_24px_rgba(0,56,87,0.06)]">
+<!-- Map Tab (Active) -->
+<div class="flex flex-col items-center justify-center bg-blue-200/50 dark:bg-blue-800/50 text-blue-900 dark:text-blue-100 rounded-2xl px-5 py-2 tap-highlight-none transition-transform active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Map</span>
+</div>
+<!-- Alerts Tab -->
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-700 dark:hover:text-blue-200 tap-highlight-none transition-transform active:scale-90">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Alerts</span>
+</div>
+<!-- Prepare Tab -->
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-700 dark:hover:text-blue-200 tap-highlight-none transition-transform active:scale-90">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Prepare</span>
+</div>
+<!-- Profile Tab -->
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 hover:text-blue-700 dark:hover:text-blue-200 tap-highlight-none transition-transform active:scale-90">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</div>
+</nav>
+</body></html>
